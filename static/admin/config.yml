@@ -1,0 +1,46 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+
+backend:
+  name: github
+  repo: computer-education/computer-education.github.io
+
+media_folder: /assets/images
+public_folder: images
+
+slug:
+  encoding: ascii
+  clean_accents: true
+
+collections:
+  - name: kegiatan
+    label: Kegiatan
+    folder: content/kegiatan/
+    path: "{{slug}}/index"
+
+    media_folder: images
+    public_folder: images
+    thumbnail: image
+    fields:
+      - { label: Judul, name: title, widget: string }
+      - {
+          label: Tanggal,
+          name: date,
+          widget: datetime,
+          format: "YYYY-MM-DDTHH:mm:ssZ",
+          date_format: "DD/MM/YYYY",
+          time_format: "HH:mm",
+          picker_utc: false,
+        }
+      - { label: Dokumentasi, name: image, widget: image, }
+      - { label: Deskripsi, name: body, widget: richtext }
+  - name: pengurus
+    label: Pengurus
+    summary: "**{{nama}}** | *{{jabatan}}*"
+    folder: content/pengurus
+    media_folder: /assets/images/pengurus
+    public_folder: images/pengurus
+    slug: "{{nama}}"
+    fields:
+      - { label: Nama, name: nama, widget: string }
+      - { label: Jabatan, name: jabatan, widget: string }
+      - { label: Foto, name: foto, widget: image }

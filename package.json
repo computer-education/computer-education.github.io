@@ -1,0 +1,21 @@
+{
+  "name": "computer-education",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.23.0",
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.2.0",
+    "axios": "^1.13.4",
+    "tailwindcss": "^4.2.0"
+  },
+  "dependencies": {
+    "swiper": "^12.1.2"
+  }
+}

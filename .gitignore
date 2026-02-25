@@ -1,0 +1,8 @@
+node_modules
+resources
+public
+
+.hugo_build.lock
+.nvim.lua
+hugo_stats.json
+todo.md

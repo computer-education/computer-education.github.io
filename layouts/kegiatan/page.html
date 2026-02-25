@@ -1,0 +1,23 @@
+{{ define "main" }}
+    <section class="p-10 w-full container mx-auto pt-[75px] lg:pt-[90px]">
+        <div class="blok justify-center items-center w-full bg-gray-100 rounded-md text-center p-4 lg:p-8">
+            
+            <div class="flex max-w-auto items-center justify-center ">
+                {{ with .Resources.Get .Params.image }}
+                    <img src="{{ .RelPermalink }}" 
+                    class="max-w-auto lg:max-w-[600px] max-h-[400px] object-cover rounded-xl mb-5">
+                {{ end }}
+            </div>
+
+            <h1 class="text-xl lg:text-3xl font-bold mb-5">{{ .Title }}</h1>
+
+            <div class="text-gray-700 leading-relaxed mb-5 text-sm lg:text-md">
+                {{ .Content }}
+            </div>
+
+            <div class="text-gray-500 text-sm lg:text-md">
+                Tanggal: {{ time.AsTime .Params.date | dateFormat "Monday, 02 January 2006" }}
+            </div>
+        </div>
+    </section>
+{{ end }}
