@@ -3,6 +3,7 @@
 backend:
   name: github
   repo: computer-education/computer-education.github.io
+  base_url: https://sveltia-cms-auth.computer-education.workers.dev/
 
 media_folder: /assets/images
 public_folder: images
