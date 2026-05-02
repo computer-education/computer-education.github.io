@@ -1,5 +1,6 @@
 ---
 title: Desain Grafis
+date: 2026-05-02T23:21:00.000Z
 image: desainGrafis-learn.jpg
 badge: ''
 cta_text: Lihat Modul
