@@ -29,8 +29,13 @@ window.addEventListener('DOMContentLoaded', function () {
     // Pastikan Anda punya elemen dengan kelas .swiper-utama di HTML
     const swiperUtama = new Swiper('.swiper-utama', {
         modules: [Navigation, Pagination],
+        mousewheel: {
+            enabled: true,
+            releaseOnEdges: true,
+        },
         loop: true,
         grabCursor: true,
+        direction: "vartical",
         navigation: {
             nextEl: '.swiper-button-next',
             prevEl: '.swiper-button-prev',

@@ -1,0 +1,43 @@
+<section class="sec-pengurus bg-white py-20" id="pengurus">
+    <div class="mb-12 text-center">
+        <h1 class="text-4xl font-bold text-gray-900">Pengurus Kami</h1>
+        <p class="mt-2 text-gray-500">Meet the team behind Computer Education</p>
+    </div>
+
+    <div class="swiper pengurus-slider container w-full px-4">
+        <div class="swiper-wrapper py-8">
+            {{ range (where .Site.RegularPages "Section" "pengurus").ByWeight }}
+                {{ if eq .Section "pengurus" }}
+                    <div class="swiper-slide flex justify-center">
+                        <div
+                            class="w-72 rounded-2xl border border-gray-100 bg-white p-6 text-center shadow-lg transition-all duration-300 hover:shadow-2xl">
+                            <div class="relative mx-auto mb-4 h-32 w-32">
+                                <div class="absolute inset-0 rounded-full bg-green-200 opacity-50 blur-lg"></div>
+                                {{ $nama := .Params.nama }}
+                                {{ with resources.Get .Params.foto }}
+                                    <img
+                                        src="{{ .RelPermalink }}"
+                                        alt="{{ $nama | lower }}"
+                                        class="relative h-full w-full rounded-full border-4 border-white object-cover shadow-md" />
+                                {{ end }}
+                            </div>
+
+                            <h3 class="mt-4 text-xl font-bold text-gray-800">
+                                {{ .Params.nama }}
+                            </h3>
+                            <p
+                                class="mt-1 inline-block rounded-full bg-green-50 px-3 py-1 text-sm font-medium text-green-600">
+                                {{ .Params.jabatan }}
+                            </p>
+                        </div>
+                    </div>
+                {{ end }}
+            {{ else }}
+                <div class="swiper-slide">
+                    <p class="text-center text-gray-500">Data pengurus belum tersedia.</p>
+                </div>
+            {{ end }}
+        </div>
+        <!-- <div class="swiper-pagination mt-8"></div> -->
+    </div>
+</section>

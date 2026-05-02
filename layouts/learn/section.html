@@ -1,0 +1,49 @@
+{{ define "main" }}
+    <section class="bg-gray-50 p-8 pt-[50px] h-auto font-[Inter]">
+        <div class="mx-auto mb-16 max-w-3xl text-center">
+            <span class="font-sans text-sm font-semibold tracking-wider text-green-600 uppercase">
+                Kurikulum Kami
+            </span>
+            <h2 class="mt-2 mb-6 text-4xl font-bold text-gray-900 md:text-5xl">Explore Our Learning Tracks.</h2>
+            <div class="mx-auto mb-6 h-1.5 w-20 rounded-full bg-gradient-to-r from-green-500 to-emerald-400"></div>
+            <p class="text-xl leading-relaxed text-gray-600">
+                Kami menyediakan berbagai divisi pembelajaran untuk meningkatkan skill digitalmu, dari coding hingga
+                kreatif visual.
+            </p>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {{ range .Pages }}
+                {{ partial "components/learn-card" . }}
+                {{/*<a href="{{ .RelPermalink }}" */}}
+                {{/*    class="group bg-white border rounded-xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:-translate-y-1">*/}}
+                {{/**/}}
+                {{/*    <div class="flex items-center gap-4">*/}}
+                {{/*        <div class="w-14 h-14 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-blue-50 transition">*/}}
+                {{/*            {{ $title := .Title }}*/}}
+                {{/*            {{ with .Resources.Get .Params.image }}*/}}
+                {{/*            <img */}}
+                {{/*                src="{{ .RelPermalink }}" */}}
+                {{/*                alt="{{ $title }} icon"*/}}
+                {{/*                class="w-10 h-10 object-contain"*/}}
+                {{/*            />*/}}
+                {{/*            {{ end }}*/}}
+                {{/*        </div>*/}}
+                {{/**/}}
+                {{/*        <div>*/}}
+                {{/*            <h3 class="text-lg font-semibold text-gray-800 group-hover:text-blue-600 transition">*/}}
+                {{/*                {{ .Title }}*/}}
+                {{/*            </h3>*/}}
+                {{/**/}}
+                {{/*            <p class="text-gray-500 text-sm mt-1">*/}}
+                {{/*                {{ len .Pages }} video tersedia*/}}
+                {{/*            </p>*/}}
+                {{/*        </div>*/}}
+                {{/*    </div>*/}}
+                {{/**/}}
+                {{/*</a>*/}}
+            {{ end }}
+        </div>
+
+    </section>
+{{ end }}

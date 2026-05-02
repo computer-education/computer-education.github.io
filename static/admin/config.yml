@@ -5,6 +5,12 @@ backend:
   repo: computer-education/computer-education.github.io
   base_url: https://sveltia-cms-auth.computer-education.workers.dev/
 
+app_title: CE | Admin
+
+logo:
+  src: /images/logo.png
+  show_in_header: false
+
 media_folder: /assets/images
 public_folder: images
 
@@ -13,9 +19,28 @@ slug:
   clean_accents: true
 
 collections:
+  - name: learn-categories
+    label: Categories
+    icon: category
+    folder: content/learn
+    path: "{{slug}}/_index"
+    extension: "md"
+    format: "frontmatter"
+    media_folder: ""
+    public_folder: ""
+    fields:
+      - { label: Judul Kategori, name: title, widget: string }
+      - { label: Tanggal Pembuatan, name: date, widget: datetime, default: '{{now}}', picker_utc: true }
+      - { label: Thumbnail, name: image, widget: image }
+      - { label: Badge, name: badge, widget: string, hint: opsional, required: false }
+      - { label: Text Call To Action, name: cta_text, widget: string, default: Lihat Modul }
+      - { label: Deskripsi, name: description, widget: text }
+      - { label: Weight, name: weight, widget: number, default: 10 }
   - name: kegiatan
     label: Kegiatan
+    icon: cards_stack
     folder: content/kegiatan/
+    create: true
     path: "{{slug}}/index"
 
     media_folder: images
@@ -34,10 +59,19 @@ collections:
         }
       - { label: Dokumentasi, name: image, widget: image, }
       - { label: Deskripsi, name: body, widget: richtext }
+  - name: module
+    label: Modul
+    icon: book
+    folder: "content/learn/{{category}}"
+    path: "{{slug}}/index"
+    fields:
+      - { label: Category, name: category, widget: relation, collection: learn-categories, value_field: "{{title}}" }
   - name: pengurus
     label: Pengurus
+    icon: groups_3
     summary: "**{{nama}}** | *{{jabatan}}*"
     folder: content/pengurus
+    create: true
     media_folder: /assets/images/pengurus
     public_folder: images/pengurus
     slug: "{{nama}}"
@@ -45,3 +79,4 @@ collections:
       - { label: Nama, name: nama, widget: string }
       - { label: Jabatan, name: jabatan, widget: string }
       - { label: Foto, name: foto, widget: image }
+      - { label: "Urutan (Kecil = Atas)", name: "weight", widget: "number", default: 10, hint: "Ketua isi 1, Wakil isi 2, dst." }
