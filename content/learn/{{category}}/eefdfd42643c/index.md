@@ -1,3 +1,3 @@
 ---
-category: Desain Grafis
+category: Fotografi
 ---
